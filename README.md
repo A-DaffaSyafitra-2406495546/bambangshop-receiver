@@ -86,4 +86,8 @@ This is the place for you to write reflections:
 
 #### Reflection Subscriber-1
 
+1. In this tutorial, we used `RwLock` to synchronize access to the `Vec<Notification>` because multiple threads may read or write the notification list at the same time. `RwLock` allows many readers to access the data concurrently while still providing exclusive access for writes, which is more appropriate than `Mutex` when reads are frequent and writes are less frequent.
+
+2. Rust requires explicit synchronization for mutable static data because shared mutable state is not thread-safe by default. `lazy_static` allows us to create a static `RwLock<Vec<Notification>>` that is safely initialized once and then used across the program, while Rust's ownership rules prevent unsafe mutation without a lock.
+
 #### Reflection Subscriber-2
