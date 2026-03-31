@@ -91,3 +91,9 @@ This is the place for you to write reflections:
 2. Rust requires explicit synchronization for mutable static data because shared mutable state is not thread-safe by default. `lazy_static` allows us to create a static `RwLock<Vec<Notification>>` that is safely initialized once and then used across the program, while Rust's ownership rules prevent unsafe mutation without a lock.
 
 #### Reflection Subscriber-2
+
+1. I have not explored files outside the tutorial steps in this receiver app, because I focused on the required notification service, controller, and repository implementation. I wanted to keep the work aligned with the tutorial checklist.
+
+2. The Observer pattern makes it easy to add more subscriber instances because each subscriber is just another receiver endpoint that can register with the publisher. Spawning more than one instance of the main app is also feasible, but it would require the publisher to manage multiple subscriber registrations and keep the URLs separate.
+
+3. I have not added formal tests or updated the Postman collection yet. I used the tutorial endpoints directly to verify the notification flow, and the collection would still be helpful for organizing those requests later.
