@@ -1,0 +1,11 @@
+use std::thread;
+use rocket::http::Status;
+use bambangshop_receiver::{APP_CONFIG, REQWEST_CLIENT, Result, compose_error_response};
+use crate::model::notification::Notification;
+use crate::model::subscriber::SubscriberRequest;
+use crate::repository::notification::NotificationRepository;
+
+pub struct NotificationService;
+
+impl NotificationService {
+}
